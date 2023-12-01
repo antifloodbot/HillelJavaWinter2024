@@ -1,2 +1,2 @@
 # HillelJavaWinter2024
-Hava Pro
+Java Pro Course
