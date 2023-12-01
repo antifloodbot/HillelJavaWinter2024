@@ -26,3 +26,5 @@ replay_pid*
 # others
 .idea/
 .git/
+/out/
+/classwork/classwork.iml
