@@ -1,5 +1,4 @@
-# HillelJavaWinter2024
-## Java Pro Course
+## HillelJavaWinter2024
 
 ### Goals
 * Primitive and Reference types
