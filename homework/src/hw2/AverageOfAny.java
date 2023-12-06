@@ -12,19 +12,17 @@ public class AverageOfAny {
             if (args.length == 0) {
                 throw new IllegalArgumentException("Need to enter at leas one digital argument");
             }
+            try {
+                for (String arg : args) {
+                    sum += Double.parseDouble(arg);
+                }
+                double average = sum / count;
+                System.out.println("Average of " + count + " digits is: " + average);
+            } catch (IllegalArgumentException e) {
+                System.out.println("All arguments should be digits.");
+            }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return;
-        }
-
-        try {
-            for (String arg : args) {
-                sum += Double.parseDouble(arg);
-            }
-            double average = sum / count;
-            System.out.println("Average of " + count + " digits is: " + average);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Both arguments should be digits.");
         }
     }
 }
