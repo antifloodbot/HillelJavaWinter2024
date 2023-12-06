@@ -11,7 +11,8 @@ public class AverageOfTwo {
             }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return;
+        } finally {
+            System.exit(0);
         }
 
         try {
