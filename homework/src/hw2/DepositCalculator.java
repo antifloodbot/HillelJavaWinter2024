@@ -11,8 +11,12 @@ java DepositCalculator <сума> <відсоток> <тривалість_у_р
 
 public class DepositCalculator {
     public static void main(String[] args) {
-        if (args.length != 3) {
-            System.out.println("Потрібно ввести 3 аргументи - суму грошового вкладу, відсоток річних та тривалість вкладу у роках");
+        try {
+            if(args.length !=3) {
+                throw new IllegalArgumentException("Please enter initial deposit amount, annual percent rate and term of deposit in years.");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
             return;
         }
 
@@ -22,7 +26,7 @@ public class DepositCalculator {
 
         double monthlyPercentRate = (annualPercentRate / 100) / 12;
 
-        System.out.println("Рік\tНакопичена сума\tНараховані відсотки");
+        System.out.println("Year\tAccumulated amount\taccumulated %");
 
         for (int year = 1; year <= termInYears; year++) {
             double totalAnnual = 0;
