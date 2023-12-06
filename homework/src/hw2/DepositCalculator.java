@@ -17,8 +17,7 @@ public class DepositCalculator {
             }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-        } finally {
-            System.exit(0);
+            return;
         }
 
         double initialDeposit = Double.parseDouble(args[0]);

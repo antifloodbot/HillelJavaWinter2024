@@ -10,12 +10,11 @@ public class AverageOfAny {
 
         try {
             if (args.length == 0) {
-                throw new IllegalArgumentException("Need to enter at least one digital argument");
+                throw new IllegalArgumentException("Need to enter at leas one digital argument");
             }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-        } finally {
-            System.exit(0);
+            return;
         }
 
         try {
