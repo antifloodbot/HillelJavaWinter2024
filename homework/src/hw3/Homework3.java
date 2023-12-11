@@ -8,30 +8,24 @@ import java.util.Scanner;
 public class Homework3 {
 
     public void forPrintFrom1to99() {
-        for (int i = 1; i < 100; i++) {
-            if (i % 2 != 0) {
-                System.out.print(i + " ");
-            }
+        for (int i = 1; i < 100; i += 2) {
+            System.out.print(i + " ");
         }
     }
 
     public void whilePrintFrom1to99() {
         int i = 1;
         while (i < 100) {
-            if (i % 2 != 0) {
-                System.out.print(i + " ");
-            }
-            i++;
+            System.out.print(i + " ");
+            i += 2;
         }
     }
 
     public void doWhilePrintFrom1to99() {
         int i = 1;
         do {
-            if (i % 2 != 0) {
-                System.out.print(i + " ");
-            }
-            i++;
+            System.out.print(i + " ");
+            i += 2;
         } while (i < 100);
     }
 
@@ -79,7 +73,7 @@ public class Homework3 {
 
     public void outputFirst10Numbers() {
         int current = 0;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 10; i > 0; i--) {
             System.out.print(current + " ");
             current -= 5;
         }
