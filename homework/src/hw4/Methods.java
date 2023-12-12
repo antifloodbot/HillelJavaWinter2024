@@ -10,7 +10,7 @@ public class Methods<i> {
     }
 
     public void printColor(int i) {
-        if (i < 0) {
+        if (i <= 0) {
             System.out.println("Red");
         } else if (i <= 100) {
             System.out.println("Yellow");
