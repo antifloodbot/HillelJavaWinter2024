@@ -20,7 +20,7 @@ public class Wall implements Obstacle {
     }
 
     @Override
-    public String attempt(Participant participant) {
+    public String overcome(Participant participant) {
         if (participant.jump(height)) {
             return "Participant [" + participant.getName() +
                     "] passed an obstacle [" + name +

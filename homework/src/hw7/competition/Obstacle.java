@@ -5,5 +5,5 @@ public interface Obstacle {
 
     int getCharacteristic();
 
-    String attempt(Participant participant);
+    String overcome(Participant participant);
 }

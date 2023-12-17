@@ -15,7 +15,7 @@ public class CompetitionRun {
 
         for (Participant participant : participants) {
             for (Obstacle obstacle : obstacles) {
-                String result = obstacle.attempt(participant);
+                String result = obstacle.overcome(participant);
                 System.out.println(result);
                 if (result.contains("didn't pass")) {
                     break;

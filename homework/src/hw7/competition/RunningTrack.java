@@ -20,7 +20,7 @@ public class RunningTrack implements Obstacle {
     }
 
     @Override
-    public String attempt(Participant participant) {
+    public String overcome(Participant participant) {
         if (participant.run(length)) {
             return "Participant [" + participant.getName() +
                     "] passed and obstacle [" + getName() +
