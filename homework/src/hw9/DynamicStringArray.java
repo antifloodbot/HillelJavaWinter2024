@@ -5,8 +5,8 @@ public class DynamicStringArray {
     private int size;
 
     public DynamicStringArray() {
-        array = new String[10];
-        size = 0;
+        this.array = new String[10];
+        this.size = 0;
     }
 
     public boolean add(int index, String value) {
