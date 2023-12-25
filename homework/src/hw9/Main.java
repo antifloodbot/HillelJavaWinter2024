@@ -2,17 +2,22 @@ package hw9;
 
 public class Main {
     public static void main(String[] args) {
-        StringCollectionService collectionService = new StringCollectionService();
-        collectionService.add("One");
-        collectionService.add("Two");
-        collectionService.add("Three");
+        DynamicStringArray dynamicArray = new DynamicStringArray();
 
-        collectionService.add(0, "OneOne");
-        collectionService.add("Olala");
-        collectionService.delete(4);
-        collectionService.delete("OneOne");
+        dynamicArray.add(0, "First");
+        dynamicArray.add(1, "Second");
+        dynamicArray.add(1, "Third");
 
-        System.out.println(collectionService.get(2));
-        collectionService.printCollection();
+        System.out.println("Getting element with index 1:\n" + dynamicArray.get(1));
+        System.out.println("The whole array:\n" + dynamicArray);
+
+        dynamicArray.add("olala");
+        System.out.println("Getting the whole array after adding 'olala':\n" + dynamicArray);
+
+        dynamicArray.delete(1);
+        System.out.println("Getting the whole array after deleting value of index 1:\n" + dynamicArray);
+
+        dynamicArray.delete("First");
+        System.out.println("Getting the whole array after deleting 'First':\n" + dynamicArray);
     }
 }
