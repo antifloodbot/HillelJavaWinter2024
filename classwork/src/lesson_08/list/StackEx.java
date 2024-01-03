@@ -22,6 +22,7 @@ public class StackEx { // LIFO
         //  [element -> stack]
         stack.push("Four"); // add to top of stack add return element
         stack.add("Five");       // return true/false
+        stack.push("Seven");
         System.out.println(stack);
         System.out.println(stack.peek());
     }
