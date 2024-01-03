@@ -5,7 +5,7 @@ public class Main {
         CollectionNewImpl collection1 = new CollectionNewImpl();
         collection1.add("One");
         collection1.add("Three");
-        collection1.add(1,"Two");
+        collection1.add(1, "Two");
 
         System.out.println("'collection1' after adding three elements:\n" + collection1);
 
