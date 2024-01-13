@@ -25,16 +25,16 @@ public class Main {
             }
         }
 
-        System.out.println("-----------Display first number---------------");
+        System.out.println("-----------Display first number:");
         Optional<String> findByName = phonebook.find(searchName);
         if (findByName.isPresent()) {
             String phoneNumber = findByName.get();
-            System.out.println(PHONE_NUMBERS_HEADER + searchName + ": " + phoneNumber);
+            System.out.println(PHONE_NUMBERS_HEADER + searchName + ":\n" + phoneNumber);
         } else {
             System.out.println(searchName + NOT_FOUND_MESSAGE);
         }
 
-        System.out.println("-----------Display all numbers--------------");
+        System.out.println("-----------Display all numbers:");
 
         Optional<List<String>> foundPhoneNumbers = phonebook.findAll(searchName);
         if (foundPhoneNumbers.isPresent()) {
