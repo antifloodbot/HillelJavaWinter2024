@@ -14,34 +14,22 @@ public class Main {
         final String PHONE_NUMBERS_HEADER = "Phone numbers for ";
         final String NOT_FOUND_MESSAGE = " not found in the phonebook.";
 
-        System.out.println("----------Display whole book:");
-        Map<String, List<String>> allEntries = phonebook.getEntries();
-        for (Map.Entry<String, List<String>> entry : allEntries.entrySet()) {
-            String name = entry.getKey();
-            List<String> phoneNumbers = entry.getValue();
-            System.out.println("Name: " + name);
-            for (String phoneNumber : phoneNumbers) {
-                System.out.println("Phone: " + phoneNumber);
-            }
-        }
-
-        System.out.println("-----------Display first number:");
-        Optional<String> findByName = phonebook.find(searchName);
-        if (findByName.isPresent()) {
-            String phoneNumber = findByName.get();
-            System.out.println(PHONE_NUMBERS_HEADER + searchName + ":\n" + phoneNumber);
+        System.out.println("-----------Display first number of one record:");
+        Optional<Record> foundRecord = phonebook.find(searchName);
+        if (foundRecord.isPresent()) {
+            Record record = foundRecord.get();
+            System.out.println(PHONE_NUMBERS_HEADER + record.getName() + ":\n" + record.getPhoneNumber());
         } else {
             System.out.println(searchName + NOT_FOUND_MESSAGE);
         }
 
-        System.out.println("-----------Display all numbers:");
-
-        Optional<List<String>> foundPhoneNumbers = phonebook.findAll(searchName);
-        if (foundPhoneNumbers.isPresent()) {
-            List<String> phoneNumbers = foundPhoneNumbers.get();
+        System.out.println("-----------Display all numbers of one record:");
+        Optional<List<Record>> foundRecordsOptional = phonebook.findAll(searchName);
+        if (foundRecordsOptional.isPresent()) {
+            List<Record> foundRecords = foundRecordsOptional.get();
             System.out.println(PHONE_NUMBERS_HEADER + searchName + ":");
-            for (String phoneNumber : phoneNumbers) {
-                System.out.println(phoneNumber);
+            for (Record record : foundRecords) {
+                System.out.println(record.getPhoneNumber());
             }
         } else {
             System.out.println(searchName + NOT_FOUND_MESSAGE);

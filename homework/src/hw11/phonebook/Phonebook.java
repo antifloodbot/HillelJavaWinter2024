@@ -3,37 +3,33 @@ package hw11.phonebook;
 import java.util.*;
 
 public class Phonebook {
-    private Map<String, List<String>> entries;
+    private List<Record> records;
 
     public Phonebook() {
-        this.entries = new HashMap<>();
+        records = new ArrayList<>();
     }
 
     public void add(String name, String phoneNumber) {
-        if (!entries.containsKey(name)) {
-            entries.put(name, new ArrayList<>());
-        }
-        entries.get(name).add(phoneNumber);
+        Record record = new Record(name, phoneNumber);
+        records.add(record);
     }
 
-    public Optional<String> find(String name) {
-        if (entries.containsKey(name)) {
-            List<String> entryList = entries.get(name);
-            if (!entryList.isEmpty()) {
-                return Optional.of(entryList.get(0));
+    public Optional<Record> find(String name) {
+        for (Record record : records) {
+            if (record.getName().equals(name)) {
+                return Optional.of(record);
             }
         }
         return Optional.empty();
     }
 
-    public Optional<List<String>> findAll(String name) {
-        if (entries.containsKey(name)) {
-            return Optional.of(entries.get(name));
+    public Optional<List<Record>> findAll(String name) {
+        List<Record> foundRecords = new ArrayList<>();
+        for (Record record : records) {
+            if (record.getName().equals(name)) {
+                foundRecords.add(record);
+            }
         }
-        return Optional.empty();
-    }
-
-    public Map<String, List<String>> getEntries() {
-        return entries;
+        return foundRecords.isEmpty() ? Optional.empty() : Optional.of(foundRecords);
     }
 }
