@@ -10,7 +10,11 @@ public class Main {
         phonebook.add("John Snow", "123-456-7890");
         phonebook.add("Bruce Lee", "987-654-3210");
         phonebook.add("John Snow", "555-555-5555");
+        String searchName = "John Snow";
+        final String PHONE_NUMBERS_HEADER = "Phone numbers for ";
+        final String NOT_FOUND_MESSAGE = " not found in the phonebook.";
 
+        System.out.println("----------Display whole book:");
         Map<String, List<String>> allEntries = phonebook.getEntries();
         for (Map.Entry<String, List<String>> entry : allEntries.entrySet()) {
             String name = entry.getKey();
@@ -21,11 +25,17 @@ public class Main {
             }
         }
 
-        System.out.println("--------------------------");
+        System.out.println("-----------Display first number---------------");
+        Optional<String> findByName = phonebook.find(searchName);
+        if (findByName.isPresent()) {
+            String phoneNumber = findByName.get();
+            System.out.println(PHONE_NUMBERS_HEADER + searchName + ": " + phoneNumber);
+        } else {
+            System.out.println(searchName + NOT_FOUND_MESSAGE);
+        }
 
-        final String PHONE_NUMBERS_HEADER = "Phone numbers for ";
-        final String NOT_FOUND_MESSAGE = " not found in the phonebook.";
-        String searchName = "John Snow";
+        System.out.println("-----------Display all numbers--------------");
+
         Optional<List<String>> foundPhoneNumbers = phonebook.findAll(searchName);
         if (foundPhoneNumbers.isPresent()) {
             List<String> phoneNumbers = foundPhoneNumbers.get();
