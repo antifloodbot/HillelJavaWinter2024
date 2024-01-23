@@ -29,7 +29,7 @@
     </dependencies>
 
     <build>
-        <finalName>firstMavenApplication</finalName>
+        <finalName>pseudoGraphicApp</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
