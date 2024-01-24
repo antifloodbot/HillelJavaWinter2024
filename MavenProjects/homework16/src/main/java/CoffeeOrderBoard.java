@@ -5,7 +5,7 @@ public class CoffeeOrderBoard {
     protected Queue<Order> orderQueue = new LinkedList<>();
     private int nextOrderNumber = 1;
 
-    public void add(String customerName) {
+    public void add(String customerName) throws IllegalArgumentException {
         Order order = new Order(nextOrderNumber, customerName);
         if (customerName == null) {
             throw new IllegalArgumentException("Customer name cannot be null");
@@ -16,16 +16,16 @@ public class CoffeeOrderBoard {
         nextOrderNumber++;
     }
 
-    public void deliver() {
+    public void deliver() throws IllegalArgumentException {
         if (!orderQueue.isEmpty()) {
             Order order = orderQueue.poll();
             System.out.println("Delivering order: " + order.getOrderNumber());
         } else {
-            System.out.println("No orders to deliver");
+            throw new IllegalArgumentException("No orders to deliver");
         }
     }
 
-    public void deliver(int orderNumber) {
+    public void deliver(int orderNumber) throws IllegalArgumentException {
         Order foundOrder = null;
         for (Order order : orderQueue) {
             if (order.getOrderNumber() == orderNumber) {
@@ -37,7 +37,7 @@ public class CoffeeOrderBoard {
             orderQueue.remove(foundOrder);
             System.out.println("Delivering order: " + foundOrder.getOrderNumber() + " | " + foundOrder.getCustomerName());
         } else {
-            System.out.println("Order with number " + orderNumber + " not found.");
+            throw new IllegalArgumentException("Order with number " + orderNumber + " not found.");
         }
     }
 
