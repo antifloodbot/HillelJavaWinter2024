@@ -97,8 +97,8 @@ class CoffeeOrderBoardTest {
         board.add("first customer");
         board.deliver();
         board.add("second customer");
-
         Order secondOrder = board.orderQueue.poll();
+
         assertEquals(2, secondOrder.getOrderNumber());
         assertEquals("second customer", secondOrder.getCustomerName());
     }
@@ -198,11 +198,9 @@ class CoffeeOrderBoardTest {
         board.add("User2");
         board.add("User1");
         board.add("User3");
-
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         board.draw();
-
         String expectedOutput = "Num | Name\n1 | User2\n2 | User1\n3 | User3\n";
         String actualOutput = outputStream.toString();
 
