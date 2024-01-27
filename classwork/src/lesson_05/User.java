@@ -84,4 +84,8 @@ public class User {
                 ", test=" + test +
                 '}';
     }
+
+    public void printUser(User user) {
+        System.out.println(user);
+    }
 }
