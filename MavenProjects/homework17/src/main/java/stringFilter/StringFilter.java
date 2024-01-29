@@ -13,9 +13,8 @@ public class StringFilter {
         if (strings.isEmpty()) {
             throw new EmptyCollectionException("Collection contains null elements");
         }
-        List<String> filteredStrings = strings.stream()
+        return strings.stream()
                 .filter(str -> str.equals(str.toLowerCase()) && str.length() == 4)
                 .toList();
-        return filteredStrings;
     }
 }
