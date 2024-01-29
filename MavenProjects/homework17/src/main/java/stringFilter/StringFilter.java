@@ -6,7 +6,7 @@ import exceptions.NullCollectionException;
 import java.util.List;
 
 public class StringFilter {
-    public List<String> filterAndPrintLowerCase4Length(List<String> strings) {
+    public List<String> filterAndPrintLowerCase4Length(List<String> strings) throws EmptyCollectionException, NullCollectionException {
         if (strings.contains(null)) {
             throw new NullCollectionException("Collection contains null elements");
         }

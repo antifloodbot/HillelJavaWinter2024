@@ -6,7 +6,7 @@ import exceptions.NullCollectionException;
 import java.util.List;
 
 public class AverageCalculator {
-    public double calculateAverage(List<Integer> numbers) {
+    public double calculateAverage(List<Integer> numbers) throws EmptyCollectionException, NullCollectionException {
         if (numbers.isEmpty()) {
             throw new EmptyCollectionException("Collection is empty");
         }
