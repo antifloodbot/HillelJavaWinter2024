@@ -34,16 +34,10 @@ class GameTest {
         Player player = new Player("TestPlayer");
         Game game = new Game(player);
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            game.getResult(null, Move.PAPER);
-        });
+        assertThrows(IllegalArgumentException.class, () -> game.getResult(null, Move.PAPER));
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            game.getResult(Move.ROCK, null);
-        });
+        assertThrows(IllegalArgumentException.class, () -> game.getResult(Move.ROCK, null));
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            game.getResult(null, null);
-        });
+        assertThrows(IllegalArgumentException.class, () -> game.getResult(null, null));
     }
 }
