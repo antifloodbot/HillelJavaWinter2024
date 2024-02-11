@@ -1,4 +1,4 @@
-package com.kmb;
+package com.knb.dto;
 
 public class Player {
     private String name;

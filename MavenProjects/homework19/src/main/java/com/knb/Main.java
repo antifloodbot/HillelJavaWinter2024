@@ -1,4 +1,7 @@
-package com.kmb;
+package com.knb;
+
+import com.knb.dto.Player;
+import com.knb.service.Game;
 
 import java.util.Scanner;
 
@@ -25,7 +28,6 @@ public class Main {
         } while (numGames <= 0);
 
         scanner.nextLine();
-        System.out.println("Game starts, " + player.getName() + "!");
 
         Game game = new Game(player, scanner);
         game.playMultipleGames(numGames);
@@ -40,4 +42,5 @@ public class Main {
         scanner.close();
     }
 }
+
 
