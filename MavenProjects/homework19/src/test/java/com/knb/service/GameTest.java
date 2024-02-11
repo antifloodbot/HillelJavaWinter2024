@@ -22,7 +22,7 @@ class GameTest {
             "PAPER, SCISSORS, LOSE",
             "SCISSORS, ROCK, LOSE"
     })
-    void testGetResult2(Move playerMove, Move computerMove, Outcome expectedOutcome) {
+    void testGetResult(Move playerMove, Move computerMove, Outcome expectedOutcome) {
         Player player = new Player("TestPlayer");
         Game game = new Game(player);
 
