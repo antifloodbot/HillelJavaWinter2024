@@ -20,11 +20,16 @@ public class Main {
         int numGames;
         do {
             System.out.println("How many games do you want to play?");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Please enter a valid number:");
+            if (scanner.hasNextInt()) {
+                numGames = scanner.nextInt();
+                if (numGames <= 0) {
+                    System.out.println("Please enter a number greater than 0.");
+                }
+            } else {
+                System.out.println("Please enter a valid number.");
                 scanner.next();
+                numGames = 0;
             }
-            numGames = scanner.nextInt();
         } while (numGames <= 0);
 
         scanner.nextLine();
