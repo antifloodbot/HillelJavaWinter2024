@@ -1,18 +1,17 @@
 package com.files;
 
-import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class FileLogger {
     private String filePath;
     private LoggingLevel level;
     private long maxFileSize;
+    private LogFileService logFileService;
 
     public FileLogger(String filePath, LoggingLevel level, long maxFileSize) {
         this.filePath = filePath;
         this.level = level;
         this.maxFileSize = maxFileSize;
+        this.logFileService = new LogFileService();
+        createLogFile();
     }
 
     public void debug(String message) throws FileMaxSizeReachedException {
@@ -27,35 +26,11 @@ public class FileLogger {
         }
     }
 
-    public void log(String message) throws FileMaxSizeReachedException {
-        File file = new File(filePath);
-
-        if (file.exists() && file.length() + message.length() > maxFileSize) {
-            String newFilePath = generateNewFilePath();
-            file = new File(newFilePath);
-            this.filePath = newFilePath;
-        }
-
-        try (PrintWriter writer = new PrintWriter(new FileWriter(file, true))) {
-            writer.println(message);
-        } catch (IOException e) {
-            System.err.println("Failed to write to log file: " + e.getMessage());
-        }
+    protected void log(String message) throws FileMaxSizeReachedException {
+        logFileService.log(message, filePath, maxFileSize);
     }
 
-    private String generateNewFilePath() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy-HH:mm");
-        String timestamp = sdf.format(new Date());
-        String fileName = "Log_" + timestamp + ".txt";
-        return fileName;
+    private void createLogFile() {
+        logFileService.createLogFile(filePath);
     }
 }
-
-
-
-
-
-
-
-
-
