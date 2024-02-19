@@ -3,19 +3,14 @@ package com.files;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
 
 
 public class FileLoggerTest {
-
-    private Object PowerMockito;
 
     @Test
     void debug_LogsDebugMessage_WhenDebugLevelIsIncluded() {
